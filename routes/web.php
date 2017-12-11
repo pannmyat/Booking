@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('Admin.admin');
-});
+//Route::get('/', function () {
+   
+//});
+Route::resource('/admin/companyinfo','CompanyInfoController');
+Route::resource('/admin/service','ServiceController');
+Route::resource('/admin/session','SessionController');

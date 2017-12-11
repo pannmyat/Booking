@@ -1,5 +1,27 @@
-<h3>Session</h3>
-
+@extends('master')
+@section('content')
+<div class="left-sidebar">
+    <div class="funkyradio">
+        <div class="funkyradio-default">
+            <input type="checkbox" name="checkbox" id="checkbox1" checked/>
+            <label for="checkbox1"><a href="{{ url('/admin/companyinfo') }}">Company Profile</a></label>
+        </div>       
+         <div class="funkyradio-default">
+            <input type="checkbox" name="checkbox" id="checkbox2" checked/>
+            <label for="checkbox1"><a href="{{ url('/admin/service') }}">Service</a></label>
+        </div>       
+         <div class="funkyradio-info">
+            <input type="checkbox" name="checkbox" id="checkbox3" checked/>
+            <label for="checkbox1"><a href="{{ url('/admin/session') }}">session</a></label>
+        </div>       
+         <div class="funkyradio-default">
+            <input type="checkbox" name="checkbox" id="checkbox4" checked/>
+            <label for="checkbox1"><a href="{{ url('/admin/report') }}">Reporting</a></label>
+        </div>            
+    </div>
+</div>
+<div class="content">
+    <h3>Session</h3>
     <form role="form" method="post" action="{{ url('/admin/category') }}">
         {{ csrf_field() }}   
         <div class="row">
@@ -50,3 +72,5 @@
     </div>      
     <input type="submit" value="Submit" class="btn btn-info btn-normal btn-inline">
     </form>
+</div>
+@endsection

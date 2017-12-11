@@ -601,3 +601,9 @@ a {
   color: #fff;
   background-color: #5bc0de;
 }
+a{
+	text-decoration: none !important;
+}
+.content ul{
+	list-style:none;
+}

@@ -29,26 +29,26 @@
         <div class="funkyradio">
             <div class="funkyradio-info">
                 <input type="checkbox" name="checkbox" id="checkbox1" checked/>
-                <label for="checkbox1">Company Profile</label>
+                <label for="checkbox1"><a href="{{ url('/admin') }}">Company Profile</a></label>
             </div>       
              <div class="funkyradio-default">
                 <input type="checkbox" name="checkbox" id="checkbox2" checked/>
-                <label for="checkbox1">Service</label>
+                <label for="checkbox1"><a href="{{ url('/admin/service') }}">Service</a></label>
             </div>       
              <div class="funkyradio-default">
                 <input type="checkbox" name="checkbox" id="checkbox3" checked/>
-                <label for="checkbox1">Session</label>
+                <label for="checkbox1"><a href="{{ url('/admin/session') }}">Session</a></label>
             </div>       
              <div class="funkyradio-default">
                 <input type="checkbox" name="checkbox" id="checkbox4" checked/>
-                <label for="checkbox1">Reporting</label>
+                <label for="checkbox1"><a href="{{ url('/admin/report') }}">Reporting</a></label>
             </div>            
         </div>
         </div>
-        <div class="content">
-             <!-- @include ('Admin.companyProfile') -->
+        <div class="content">            
+             @include ('Admin.companyProfile')
              <!-- @include ('Admin.service') -->
-             @include ('Admin.session')
+             <!-- @include ('Admin.session') -->
         </div>
     </div>
 </div>
