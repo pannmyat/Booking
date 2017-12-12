@@ -22,15 +22,16 @@
 </div>
 <div class="content">
     <h3>Company Profile</h3>
-    <form role="form" method="post" action="{{ url('/admin/category') }}">
+    <form role="form" method="post" action="{{ url('/admin/companyinfo') }}">
         {{ csrf_field() }}
         <div class="form-group">
             <label>Company Name</label>
-            <input class="form-control" placeholder="Enter Company Name" name="main_title">
+            <input class="form-control" placeholder="Enter Company Name" name="name">
+            @if ($errors->has('name')) <p class="help-block" style="color:red;">{{ $errors->first('name') }}</p> @endif
         </div>
         <div class="form-group">
             <label>Sub Title</label>
-            <input class="form-control" placeholder="Enter Sub Title" name="sub_tiitle">
+            <input class="form-control" placeholder="Enter Sub Title" name="title">
         </div>  
         <div class="form-group">
             <label>Contact Address</label>
@@ -38,7 +39,7 @@
         </div>  
         <div class="form-group">
             <label>Contact No</label><br>
-            <input class="form-control" id="phone" type="tel" >
+            <input class="form-control" id="phone" type="tel" name="contactno">
         </div>  
         <div class="form-group">
             <label>Email</label>
@@ -53,6 +54,7 @@
         </div>            
         <input type="submit" value="Submit" class="btn btn-info btn-normal btn-inline">
     </form>
+
 </div>
  <script>
     jQuery(function($){

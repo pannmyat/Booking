@@ -44,14 +44,15 @@
         <div class="panel panel-default">
             <div class="panel-heading">                        
                 <label>Service Type</label>
-                <select class="form-control" name="parent_id">
+                <select class="form-control" name="parent_id" v-model="selected">
+                    <option value=""></option>
                     <option value="0">hourly</option>
                     <option value="1">customize</option>                        
-                </select><br>
+                </select><br>                
             </div> 
-            <div class="Value panel-body">
-                <label>Service Hour</label>
-                <div class="hourly_service">                   
+            <div class="Value panel-body">                
+                <div class="hourly_service" v-if="selected === '0'">  
+                    <label>Service Hour</label>                 
                     <select class="form-control" name="parent_id">
                         <option value="1">1 hour</option>
                         <option value="2">1.5 hour</option>
@@ -59,13 +60,31 @@
                         <option value="4">2.5 hour</option> 
                         <option value="5">3 hour</option>                       
                     </select><br>
+                    <label>Open Time</label>
+                    <input type="text" name="open_time[]" class="open_time" size=15>                      
+                    <label>                Close Time</label>
+                    <input type="text" name="close_time[]" class="close_time" size=15>
                 </div>
-                <div class="customize_service">
-                    <button class="addValue btn btn-info" >+</button> <br>                       
-                    <label>Start Time</label>
-                    <input type="text" name="str_time" class="service" size=15>                      
-                    <label>                 End Time</label>
-                    <input type="text" name="end_time" class="price" size=15> 
+                <div class="customize_service"  v-if="selected === '1'">
+                     <button type="button" class="btn btn-info btn-normal btn-inline" v-on:click="optionClick">+</button><br>       
+                     <ul>            
+                        <li>                                       
+                            <label>Start Time</label>
+                            <input type="text" name="str_time[]" class="str_time" size=15>                      
+                            <label>                 End Time</label>
+                            <input type="text" name="end_time[]" class="end_time" size=15>
+                        </li>
+                        <hr>
+                    </ul> 
+                    <ul v-show="listStatus">            
+                        <li>                                               
+                            <label>Start Time</label>
+                            <input type="text" name="str_time[]" class="str_time" size=15>                      
+                            <label>                 End Time</label>
+                            <input type="text" name="end_time[]" class="end_time" size=15>
+                        </li>
+                        <hr>
+                    </ul> 
                 </div>                      
             </div>
         </div>
@@ -73,4 +92,29 @@
     <input type="submit" value="Submit" class="btn btn-info btn-normal btn-inline">
     </form>
 </div>
+<script type="text/javascript" src="{{url('/')}}/js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '.content',
+            data: {        
+                 list: [],
+                 listResult: '',
+                 listStatus:false,
+            },
+            computed: {
+                listStatus: function () {
+                  return (this.list.length > 0) ? true : false; 
+                },               
+            },          
+            methods: {
+                optionClick: function() {                    
+                    this.list.push({
+                        str_time: '',                       
+                        end_time: '',                       
+                    });
+                },
+              
+            }
+        })
+    </script>
 @endsection

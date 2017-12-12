@@ -6,6 +6,7 @@ body {
 	width:100%;
 	color:#929292;
 	font:normal 12px/1.5em "Liberation sans", Arial, Helvetica, sans-serif;
+	background-image: url(../images/bg.jpg);
 }
 html, .main {
 	padding:0;
@@ -606,4 +607,16 @@ a{
 }
 .content ul{
 	list-style:none;
+}
+label{
+	color:#777777;
+}
+h3{
+	color: #0d6887 !important;	
+}
+.panel-default > .panel-heading{
+	background-color: #c7d7ed !important;
+}
+.panel-default > .panel-body{
+	background-color: #d3e4e8 !important;
 }
